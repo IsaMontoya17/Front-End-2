@@ -43,8 +43,6 @@ function jugadaRandom() {
     return numero;
 }
 
-
-
 /* -------------------------------------------------------------------------- */
 /*                                  FUNCION 4                                 */
 /* -------------------------------------------------------------------------- */
@@ -74,6 +72,19 @@ function compararJugadas() {
 }
 
 const resultadoDePartida = compararJugadas()
+
+function mostrarResultado(resultadoDePartida) {
+    console.log(resultadoDePartida);
+
+    alert(resultadoDePartida);
+
+    if (resultadoDePartida.includes('perdiste')) {
+        alert("¡Ánimo! ¡Seguro que en la próxima tienes más suerte!");
+    }
+}
+
+mostrarResultado(resultadoDePartida);
+
 /* -------------------------------------------------------------------------- */
 /*                          CONSIGNA MESA DE TRABAJO                          */
 /* -------------------------------------------------------------------------- */
