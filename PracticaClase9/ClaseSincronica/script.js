@@ -162,6 +162,7 @@ function navegarPaginaExito() {
 
     setTimeout(function() {
         location.href = './usuario.html';
+        history.pushState(null, null, "usuario.html");
     }, 3000);
 
 
