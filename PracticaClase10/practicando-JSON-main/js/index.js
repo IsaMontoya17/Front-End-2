@@ -38,9 +38,13 @@ const jsonData = `
 }
 `;
 
-//Recorrer el JSON e insertar en el listado del html los nombres de los miembros
-function recorrerMiembros() {
-    //escribe la lógica
+const squad = JSON.parse(jsonData);
 
-};
+function recorrerMiembros() {
+  let lista = document.getElementById('miembros');
+  squad.members.forEach(member => {
+    lista.innerHTML += "<li>" + member.name + "</li>";
+  });
+}
+
 recorrerMiembros();
