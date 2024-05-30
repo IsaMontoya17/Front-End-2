@@ -100,6 +100,8 @@ function renderizarErrores(listado) {
     }
 }
 
+const formulario = document.forms[0];
+
 function mostrarMensajeExito(listado) {
     if (listado.length === 0){
         const divTemplate = document.createElement('div');
@@ -107,13 +109,15 @@ function mostrarMensajeExito(listado) {
         divTemplate.innerHTML += `<p><small>¡Formulario completado con éxito!</small></p>`;
         form.appendChild(divTemplate);
 
-        let boton = document.querySelector("button");
+        let boton = formulario.querySelector('button[type="submit"]');
         const preventDefaultHandler = function(e) {
             e.preventDefault();
         };
         boton.addEventListener('click', preventDefaultHandler);
+        boton.disabled = true
 
         setTimeout(function() {
+            boton.disabled = false
             form.reset();
             form.removeChild(divTemplate);
             boton.removeEventListener('click', preventDefaultHandler); 
