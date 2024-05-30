@@ -71,7 +71,6 @@ function obtenerDatosDelUsuario() {
 }
 
 function renderizarDatosUsuario() {
-  /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
   obtenerDatosDelUsuario();
   /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
   document.getElementById('nombre').innerText = datosPersona.nombre
