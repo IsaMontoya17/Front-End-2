@@ -81,7 +81,7 @@ boton.addEventListener('click', function () {
 console.log("Clink para ver comentarios...");
 
 //    Esta funcion retorna una promesa, por eso capturamos su resultado con el then()
-consultaAsincrona("endpoint").then( respuesta => console.log(respuesta))
+consultaAsincrona("endpoint").then( respuesta => renderizarElementos(respuesta))
 })
 
 /* -------------------------------------------------------------------------- */
@@ -115,20 +115,18 @@ return new Promise((resolve, reject) => {
 
 }
 
-/* ----------------------------- Mesa de trabajo ---------------------------- */
-/* -------------------------------------------------------------------------- */
-/*                       [3] FUNCION: Pintar en pantalla                      */
-/* -------------------------------------------------------------------------- */
-// En este caso la consigna será más abierta, se explicitarán los requerimientos
-// pero hay varias maneras de llegar al resultado.
-// 1- Hay que desarrollar esta función para que reciba los comentarios y los muestre en pantalla.
-// 2- La funcion debe ser llamada en el lugar correspondiente.
-// 3- En el HTML hay un comentario creado, el mismo debe ser eliminado de ahí, pero hay que respetar
-// esa estructura de etiquetas para el resto de los comentarios.
-// 4- Para el renderizado podemos utilizar .forEach() pero se valora también intentar
-//  llegar al mismo resultado utilizando .map()
-// Muchos éxitos!
-
 function renderizarElementos(listado){
-// desarrollar la funcion 👇
+
+    const comentario = document.querySelector('.comentario');
+    comentario.remove();
+
+    let listadoRenderizado = listado.map(item => {
+        return `<div class="comentario">
+                    <h4>${item.email}</h4>
+                    <p>${item.body}</p>
+                </div>`
+    })
+
+    listadoRenderizado = listadoRenderizado.join('');
+    document.querySelector('.comentarios').innerHTML = listadoRenderizado;  
 }

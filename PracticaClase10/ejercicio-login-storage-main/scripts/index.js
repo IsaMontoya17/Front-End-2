@@ -63,3 +63,7 @@ TIPS:
 
    ¡Manos a la obra!
  */
+
+window.addEventListener('load', function(){
+  
+})
